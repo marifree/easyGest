@@ -1,23 +1,22 @@
-<md-sidenav  class="md-sidenav-left md-whiteframe-z2 menu" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
-	<md-toolbar class="md-tall md-hue-2">		
-		<div layout="column" class="md-toolbar-tools-bottom inset">
-		 	<img src="img/logo.png" width="182px">    
-		</div>
-	</md-toolbar>	
-	<md-list flex>    	
-        <md-list-item ng-repeat="item in menu" ng-class="{'md-1-line' : true, 'selected' : item.active}"  ng-click="go(item.link)">
-        	<ng-md-icon class="icon" icon="{{item.icon}}"></ng-md-icon>
-          	<div class="md-list-item-text">
-            	<p>{{item.title}}</p>
-          	</div>
-        </md-list-item>
-        <md-subheader class="md-no-sticky">Management</md-subheader>
-        <md-list-item ng-repeat="item in admin" ng-class="{'md-1-line' : true, 'selected' : item.active}"  ng-click="go(item.link)">
-        	<ng-md-icon class="icon" icon="{{item.icon}}"></ng-md-icon>
-          	<div class="md-list-item-text">
-            	<p>{{item.title}}</p>
-          	</div>
-        </md-list-item>
-    </md-lit>
-</md-sidenav>
+<md-toolbar class="md-tall md-hue-2">		
+	<div layout="column" class="md-toolbar-tools-bottom inset">
+	 	<img src="img/logo.png" width="182px">    
+	</div>
+</md-toolbar>	
+<md-list flex>    	
+    <md-list-item ng-repeat="item in menu" ng-class="{'md-1-line' : true, 'selected' : item.active}"  ng-click="go(item.link)">
+      	<ng-md-icon class="icon" icon="{{item.icon}}"></ng-md-icon>
+        	<div class="md-list-item-text">
+          	<p>{{item.title}}</p>
+        	</div>
+      </md-list-item>
+      <md-subheader class="md-no-sticky">Management</md-subheader>
+      <md-list-item ng-repeat="item in admin" ng-class="{'md-1-line' : true, 'selected' : item.active}"  ng-click="go(item.link)">
+      	<ng-md-icon class="icon" icon="{{item.icon}}"></ng-md-icon>
+        	<div class="md-list-item-text">
+          	<p>{{item.title}}</p>
+        	</div>
+      </md-list-item>
+</md-lit>
+
 

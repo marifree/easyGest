@@ -1,0 +1,19 @@
+{
+	"STATUS": "OK",
+	"MESSAGE": {
+		"TECNICI" :[
+			{
+				"nome": "Maria Laura",
+				"cognome" : "fresu",
+				"email": "marialaurafresu@gmail.com",
+				"isActive": "1"
+			},
+			{
+				"nome": "Pinco",
+				"cognome" : "Pallino",
+				"email": "pincopallino@gmail.com",
+				"isActive": "1"
+			}
+		]
+	}
+}
