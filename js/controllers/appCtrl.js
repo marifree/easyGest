@@ -1,4 +1,8 @@
 app.controller('AppCtrl', ['$scope', '$location', '$mdSidenav', function($scope, $location, $mdSidenav) {
+	//verifica se si trova nella pagina di login
+	$scope.isLogin = !!($location.path() == '/login');
+	
+	//menu 
 	$scope.menu = [
 	    {
 	      link : '/',
@@ -19,6 +23,8 @@ app.controller('AppCtrl', ['$scope', '$location', '$mdSidenav', function($scope,
 	      active : false
 	    }
   	];
+  	
+  	//menu
   	$scope.admin = [
 	    {
 	      link : '',
@@ -41,4 +47,5 @@ app.controller('AppCtrl', ['$scope', '$location', '$mdSidenav', function($scope,
   	$scope.toggleSidenav = function(menuId) {
 	    $mdSidenav(menuId).toggle();
 	};
+	
 }]);

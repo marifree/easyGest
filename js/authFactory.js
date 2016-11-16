@@ -1,4 +1,4 @@
-app.factory('AuthFactory', function(){
+app.factory('AuthFactory', ['$window', function($window){
 
 	//verifica se l'utente e' autenticato
 	this.isAuthenticated = function(){
@@ -27,14 +27,16 @@ app.factory('AuthFactory', function(){
 
 	//restituisce true se l'utente è di tipo admin
 	this.isAdmin = function(){
-		if(this.isAuthenticated()) return !!this.getSession().user == 'admin';
+		if(this.isAuthenticated()) return !!(this.getSession().user == 'admin');
 		else return false;
 	}
 
 	//restituisce true se l'utente è di tipo company
 	this.isCompany = function(){
-		if(this.isAuthenticated()) return !!this.getSession().user == 'company';
+		if(this.isAuthenticated()) return !!(this.getSession().user == 'company');
 		else return false;
 	}
 
-});
+	return this;
+
+}]);

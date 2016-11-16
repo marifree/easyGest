@@ -5,11 +5,11 @@
 		<title>iGestTech</title>
   	</head>
   	<body layout="row" ng-controller="AppCtrl">  		
-  		<md-sidenav layout="column"  class="md-sidenav-left md-whiteframe-z2 menu" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+  		<md-sidenav ng-if="!isLogin" layout="column"  class="md-sidenav-left md-whiteframe-z2 menu" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
 			<ng-include src="'templates/menu.html'" ></ng-include>
 		</md-sidenav>
 		<div  layout="column" class="relative" layout-fill role="main">
-			<ng-include src="'templates/header.html'"></ng-include>
+			<ng-include ng-if="!isLogin" src="'templates/header.html'"></ng-include>
 			<md-content  flex md-scroll-y>
 				<div ng-view layout="column" class="view"></div>
 			</md-content>

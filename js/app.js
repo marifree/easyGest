@@ -49,7 +49,7 @@ app.config(['$routeProvider', '$mdThemingProvider', function ($routeProvider, $m
 
 }]);
 
-app.run(['$rootScope', 'AuthFactory', '$location', function($rootScope, authFactory, $location){
+app.run(['$rootScope', 'AuthFactory', '$location', function($rootScope, AuthFactory, $location){
     $rootScope.$on('$routeChangeStart', function (event, toState) {
 
         if(!AuthFactory.isAuthenticated()){ $location.path('/login'); /* utente non autenticato */ }
