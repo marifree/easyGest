@@ -1,15 +1,16 @@
 app.service('api', ['$http', 'BASE_URL', function($http, BASE_URL){
 	
-	this.get = function(service){
-		return $http.get(BASE_URL+service+'.json')
+	this.call = function(service){
+		return $http.post(BASE_URL+service+'.php')
 			.then(
-				function(response){ console.log('ok', response); return response.data.MESSAGE; }, //success callback
-				function(response){ console.log('error', response); return response; } //error callback
+				function(response){ if(response.data.STATUS == 'OK'){ return response.data.MESSAGE; } else { return handleError(response); } }, //success callback
+				function(response){ return handleError(response); } //error callback
 	      	);
-	}
-
-	this.set = function(){
-
-	}
+	}	
 
 }]);
+
+var handleError = function(response){
+	console.log('-- ERROR --', response);
+	return false;
+}

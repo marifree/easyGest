@@ -2,7 +2,7 @@
 
 app.controller('CompanyCtrl', ['$scope', 'api' ,function($scope, api) {		
 
-	api.get('datiAzienda').then(function(response){
+	api.call('datiAzienda').then(function(response){
 		$scope.company = response;
 		$scope.file = $scope.company.logoPath;
 		$scope.original_company = angular.copy($scope.company);

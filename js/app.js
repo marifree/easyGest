@@ -1,16 +1,14 @@
 var app = angular.module('StarterApp', ['ngMaterial', 'ngRoute','ngMdIcons','ngAnimate', 'ngAria','ngMessages', 'ngFileUpload']);
 
-/* ---- ROUTE ---- */
+
 app.config(['$routeProvider', '$mdThemingProvider', function ($routeProvider, $mdThemingProvider){
+    
+    /* ---- ROUTE ---- */
     $routeProvider.
-        when('/login-admin', {
+        when('/login', {
         templateUrl: 'templates/login.html',
-        controller: 'LoginAdminCtrl',
-    }).
-        when('/login-company', {
-        templateUrl: 'templates/login.html',
-        controller: 'LoginCompanyCtrl',
-    }).
+        controller: 'LoginCtrl',
+    }).        
         when('/update-password', {
         templateUrl: 'templates/update-password.html',
         controller: 'UpdatePasswordCtrl',
@@ -44,14 +42,27 @@ app.config(['$routeProvider', '$mdThemingProvider', function ($routeProvider, $m
         controller: 'RenewalAccountCtrl',
     });
 
-
-
+    /* ---- THEMES ---- */
     $mdThemingProvider.theme('default')
     .primaryPalette('blue')
     .accentPalette('orange'); 
+
+}]);
+
+app.run(['$rootScope', 'AuthFactory', '$location', function($rootScope, authFactory, $location){
+    $rootScope.$on('$routeChangeStart', function (event, toState) {
+
+        if(!AuthFactory.isAuthenticated()){ $location.path('/login'); /* utente non autenticato */ }
+        else{
+            /* utente autenticato */
+            if(AuthFactory.isAdmin()) { $location.path('/companies'); }
+            else { $location.path('/company'); }
+        }
+
+    });
 }]);
 
 /* ---- CONSTANT ---- */
 // http://www.bluelionsoftware.com/easyGest/v1/
-app.constant('BASE_URL', 'api/');
+app.constant('BASE_URL', 'http://www.bluelionsoftware.com/easyGest/v1/');
 
