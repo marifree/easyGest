@@ -1,0 +1,99 @@
+<ui-view layout="column" layout-fill layout-padding >
+	
+    <form name="myForm" ng-submit="editCompany(company)" >
+    <md-card >
+    	
+    	<md-card-title>  
+				
+				<md-card-title-media>
+					<div ng-mouseover="uploaderHover = 'upload-hover'"  ng-mouseleave="uploaderHover = ''" class="box-upload-image">
+						<div ng-class="uploaderHover" ngf-select="upload($file)" 
+		            		ng-model="file" 
+		            		accept="image/png" 
+		            		ngf-max-size="250kb"
+		            		 ><ng-md-icon class="icon icon-upload-hover" ng-if="uploaderHover == 'upload-hover'" icon="insert_photo"></ng-md-icon></div>
+		            	<img width="152px" id="uploadeImage" class="upload-image md-card-image"  alt="{{company.ragioneSociale}}" ngf-src="file" ngf-no-object-url="true" ngf-background="file" 
+		            		>	            		
+	            	</div>	
+	          	</md-card-title-media>
+	          	<md-card-title-text layout="row" layout-wrap>
+
+					  <md-input-container flex="60">
+					    <label>Ragione Sociale</label>
+					    <input name="name" id="name" ng-model="company.ragioneSociale" ng-required="true">
+					    <div ng-messages="myForm.name.$error" ng-show="myForm.name.$touched">
+					      <div ng-message="required">Questo campo e' obblicatorio</div>
+					    </div>
+					  </md-input-container>
+					  <md-input-container flex="30">
+					    <label>Partita Iva</label>
+					    <input name="iva" id="iva" ng-model="company.piva" ng-required="true">
+					    <div ng-messages="myForm.iva.$error" ng-show="myForm.iva.$touched">
+					      <div ng-message="required">Questo campo e' obblicatorio</div>
+					    </div>
+					  </md-input-container>
+					  <md-input-container flex="30">
+					    <label>Indirizzo</label>
+					    <input name="address" id="address" ng-model="company.indirizzo" ng-required="true">
+					    <div ng-messages="myForm.address.$error" ng-show="myForm.address.$touched">
+					      <div ng-message="required">Questo campo e' obblicatorio</div>
+					    </div>
+					  </md-input-container>					  
+					  
+					   <md-input-container flex="20">
+					    <label>Cap</label>
+					    <input name="cap" id="cap" ng-model="company.cap" ng-required="true">
+					    <div ng-messages="myForm.cap.$error" ng-show="myForm.cap.$touched">
+					      <div ng-message="required">Questo campo e' obblicatorio</div>
+					    </div>					    
+					  </md-input-container>
+					  <md-input-container flex="30">
+					    <label>Citta'</label>
+					    <input name="city" id="city" ng-model="company.citta" ng-required="true">
+					    <div ng-messages="myForm.city.$error" ng-show="myForm.city.$touched">
+					      <div ng-message="required">Questo campo e' obblicatorio</div>
+					    </div>
+					  </md-input-container>
+
+					  <md-input-container flex="30">
+					    <label>Telefono</label>					   
+					    <input name="tel" id="tel" ng-model="company.tel" ng-required="true">
+					    <div ng-messages="myForm.tel.$error" ng-show="myForm.tel.$touched">
+					      <div ng-message="required">Questo campo e' obblicatorio</div>
+					    </div>
+					  </md-input-container>
+					  
+					  </md-input-container>
+					  <md-input-container flex="30">
+					    <label>Email</label>
+					    <input name="email" id="email" ng-model="company.email" ng-required="true">
+					    <div ng-messages="myForm.email.$error" ng-show="myForm.email.$touched">
+					      <div ng-message="required">Questo campo e' obblicatorio</div>
+					    </div>
+					  </md-input-container>
+					  <md-input-container flex="30">
+					    <label>Web</label>
+					    <input name="web" id="web" ng-model="company.web" ng-required="true">
+					    <div ng-messages="myForm.web.$error" ng-show="myForm.web.$touched">
+					      <div ng-message="required">Questo campo e' obblicatorio</div>
+					    </div>
+					  </md-input-container>
+					  <md-input-container flex="30">
+					    <label>Referente</label>
+					    <input name="referente" id="referente" ng-model="company.referente" ng-required="true">
+					    <div ng-messages="myForm.referente.$error" ng-show="myForm.referente.$touched">
+					      <div ng-message="required">Questo campo e' obblicatorio</div>
+					    </div>
+			  	</md-card-title-text>
+			 
+			
+		</md-card-title> 
+		<md-card-actions layout="row" layout-align="end center">		
+		    <md-button type="button" class="md-raised "ng-click="go('/')">Annulla</md-button>
+		    <md-button type="submit" class="md-raised md-primary" ng-disabled="myForm.$invalid">Salva</md-button>
+		</md-card-actions>	
+		
+		
+	</md-card>
+	</form>
+</ui-view>
