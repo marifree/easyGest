@@ -1,0 +1,28 @@
+<ui-view layout="column" layout-align="center center" layout-fill layout-padding>
+	<form ng-submit="login(credentials, isCompany)">
+		<md-card>
+			<md-card-header>				
+				<md-card-header-text>
+					<span class="md-title">Login</span>
+				</md-card-header-text>
+			</md-card-header>
+			<md-card-title> 
+			  <md-card-title-text>				
+				  <div class="group">
+				    <input type="text" ng-model="credentials.username"><span class="highlight"></span><span class="bar"></span>
+				    <label>Username</label>
+				  </div>
+				  <div class="group">
+				    <input type="password" ng-model="credentials.password"><span class="highlight"></span><span class="bar"></span>
+				    <label>Password</label>
+				  </div>				  				
+			  </md-card-title-text>			 
+			</md-card-title>
+			<md-card-actions layout="row" layout-align="end center">
+				<md-switch ng-model="isCompany" aria-label="Switch 1">Azienda</md-switch>
+				<md-button class="md-raised md-primary" type="submit">Ricorda Password</md-button>
+			  	<md-button class="md-raised md-primary" type="submit">Login</md-button>
+			</md-card-actions>
+		</md-card> 
+	</form>   
+</ui-view>

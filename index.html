@@ -4,8 +4,7 @@
 		<link rel="stylesheet" href="css/main.css">
 		<title>iGestTech</title>
   	</head>
-  	<body layout="row" ng-controller="AppCtrl">
-  		
+  	<body layout="row" ng-controller="AppCtrl">  		
   		<md-sidenav layout="column"  class="md-sidenav-left md-whiteframe-z2 menu" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
 			<ng-include src="'templates/menu.html'" ></ng-include>
 		</md-sidenav>
@@ -29,9 +28,16 @@
 		<script type="text/javascript" src="lib/ng-file-upload-shim.min.js"></script>
 		<script type="text/javascript" src="js/app.js"></script>
 		<script type="text/javascript" src="js/services.js"></script>
-		<script type="text/javascript" src="js/controllers/homeCompanyCtrl.js"></script>
+		<script type="text/javascript" src="js/authFactory.js"></script>
+		<script type="text/javascript" src="js/controllers/companyCtrl.js"></script>
 		<script type="text/javascript" src="js/controllers/appCtrl.js"></script>
+		<script type="text/javascript" src="js/controllers/loginCtrl.js"></script>
+		<script type="text/javascript" src="js/controllers/updatePasswordCtrl.js"></script>
+		<script type="text/javascript" src="js/controllers/companiesCtrl.js"></script>
 		<script type="text/javascript" src="js/controllers/techniciansCtrl.js"></script>
+		<script type="text/javascript" src="js/controllers/technicalOperationsCtrl.js"></script>
+		<script type="text/javascript" src="js/controllers/renewalAccountCtrl.js"></script>
+
 
   	</body>
 </html>

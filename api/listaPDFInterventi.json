@@ -1,0 +1,14 @@
+{
+	"STATUS": "OK",
+	"MESSAGE": {
+		"interventiPDF": [{
+			"numeroRapporto": "1478273305-34318",
+			"PDFAzienda": "1478273305-34318_reportTecnico.pdf",
+			"PDFMaterialeUtilizzato": "1478273305-34318_materialeUtilizzato.pdf",
+			"PDFMaterialePreventivato": "1478273305-34318_materialeDaPreventivare.pdf",
+			"Tecnico": "Rudy Fastelli",
+			"Data": "2016-11-04",
+			"Cliente": "intouch"
+		}]
+	}
+}

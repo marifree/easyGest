@@ -4,5 +4,4 @@ app.controller('TechniciansCtrl', ['$scope', 'api' ,function($scope, api) {
 		$scope.technicians = response.TECNICI;
 	});
 	
-	
 }]);

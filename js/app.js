@@ -1,27 +1,68 @@
 var app = angular.module('StarterApp', ['ngMaterial', 'ngRoute','ngMdIcons','ngAnimate', 'ngAria','ngMessages', 'ngFileUpload']);
 
-/* ---- ROUTE ---- */
+
 app.config(['$routeProvider', '$mdThemingProvider', function ($routeProvider, $mdThemingProvider){
+    
+    /* ---- ROUTE ---- */
     $routeProvider.
-        when('/', {
-        templateUrl: 'templates/home-company.html',
-        controller: 'HomeCompanyCtrl',
+        when('/login', {
+        templateUrl: 'templates/login.html',
+        controller: 'LoginCtrl',
+    }).        
+        when('/update-password', {
+        templateUrl: 'templates/update-password.html',
+        controller: 'UpdatePasswordCtrl',
+    }).        
+        when('/company', {
+        templateUrl: 'templates/company.html',
+        controller: 'CompanyCtrl',
+    }).
+        when('/companies', {
+        templateUrl: 'templates/companies.html',
+        controller: 'CompaniesCtrl',
     }).
         when('/edit-company', {
         templateUrl: 'templates/edit-company.html',
-        controller: 'HomeCompanyCtrl',
+        controller: 'CompanyCtrl',
+    }).
+        when('/add-company', {
+        templateUrl: 'templates/edit-company.html',
+        controller: 'CompanyCtrl',
     }).
         when('/technicians', {
         templateUrl: 'templates/technicians.html',
         controller: 'TechniciansCtrl',
+    }).
+        when('/technical-operations', {
+        templateUrl: 'templates/technical-operations.html',
+        controller: 'TechnicalOperationsCtrl',
+    }).
+        when('/renewal-account', {
+        templateUrl: 'templates/renewal-account.html',
+        controller: 'RenewalAccountCtrl',
     });
 
+    /* ---- THEMES ---- */
     $mdThemingProvider.theme('default')
     .primaryPalette('blue')
     .accentPalette('orange'); 
+
+}]);
+
+app.run(['$rootScope', 'AuthFactory', '$location', function($rootScope, authFactory, $location){
+    $rootScope.$on('$routeChangeStart', function (event, toState) {
+
+        if(!AuthFactory.isAuthenticated()){ $location.path('/login'); /* utente non autenticato */ }
+        else{
+            /* utente autenticato */
+            if(AuthFactory.isAdmin()) { $location.path('/companies'); }
+            else { $location.path('/company'); }
+        }
+
+    });
 }]);
 
 /* ---- CONSTANT ---- */
 // http://www.bluelionsoftware.com/easyGest/v1/
-app.constant('BASE_URL', 'api/');
+app.constant('BASE_URL', 'http://www.bluelionsoftware.com/easyGest/v1/');
 
