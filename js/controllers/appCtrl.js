@@ -1,4 +1,4 @@
-app.controller('AppCtrl', ['$scope', '$location', function($scope, $location) {
+app.controller('AppCtrl', ['$scope', '$location', '$mdSidenav', function($scope, $location, $mdSidenav) {
 	$scope.menu = [
 	    {
 	      link : '/',
@@ -37,4 +37,8 @@ app.controller('AppCtrl', ['$scope', '$location', function($scope, $location) {
   	$scope.viewTitle = false;
 
   	$scope.go = function(path){ $location.path( path ); }
+
+  	$scope.toggleSidenav = function(menuId) {
+	    $mdSidenav(menuId).toggle();
+	};
 }]);

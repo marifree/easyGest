@@ -1,30 +1,12 @@
  
 
-app.controller('HomeCompanyCtrl', ['$scope',function($scope) {	
-	$scope.company = {
-		"lastLogin": "2016-10-17 20:16:48",
-		"ragioneSociale": "Enel SRL",
-		"piva": "02195250507",
-		"indirizzo": "Via A. Bassi, 5",
-		"citta": "Pisa",
-		"cap": "56121",
-		"tel": "3289210210",
-		"referente": "Fabio Fosso",
-		"email": "info@intouch-srl.com",
-		"web": "www.intouch-srl.com",
-		"activationCode": "ftjn",
-		"dataIscrizione": "2016-10-17",
-		"expirationDate": "2017-01-15",
-		"maxNumTecnici": "10",
-		"userName": "intouch",
-        "logoPath":"https://upload.wikimedia.org/wikipedia/it/thumb/1/18/Enel_Logo.svg/1280px-Enel_Logo.svg.png"
+app.controller('HomeCompanyCtrl', ['$scope', 'api' ,function($scope, api) {		
 
-	}
-	
-	$scope.file = $scope.company.logoPath;
-	$scope.original_company = angular.copy($scope.company);
-	
-
+	api.get('datiAzienda').then(function(response){
+		$scope.company = response;
+		$scope.file = $scope.company.logoPath;
+		$scope.original_company = angular.copy($scope.company);
+	});
 	
 	$scope.setedit = function(){$scope.edit = true;}
 

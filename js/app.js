@@ -1,5 +1,6 @@
 var app = angular.module('StarterApp', ['ngMaterial', 'ngRoute','ngMdIcons','ngAnimate', 'ngAria','ngMessages', 'ngFileUpload']);
 
+/* ---- ROUTE ---- */
 app.config(['$routeProvider', '$mdThemingProvider', function ($routeProvider, $mdThemingProvider){
     $routeProvider.
         when('/', {
@@ -20,4 +21,7 @@ app.config(['$routeProvider', '$mdThemingProvider', function ($routeProvider, $m
     .accentPalette('orange'); 
 }]);
 
+/* ---- CONSTANT ---- */
+// http://www.bluelionsoftware.com/easyGest/v1/
+app.constant('BASE_URL', 'api/');
 
