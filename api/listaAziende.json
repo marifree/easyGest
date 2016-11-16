@@ -1,0 +1,23 @@
+{
+  "STATUS": "OK",
+  "MESSAGE": {
+    "AZIENDE": [
+      {
+        "ragioneSociale": "inTouch SRLS",
+        "piva": "02195250507"
+      },
+      {
+        "ragioneSociale": "Zero",
+        "piva": "0000000001"
+      },
+      {
+        "ragioneSociale": "Comair SPA",
+        "piva": "02145673562"
+      },
+      {
+        "ragioneSociale": "FabioLab",
+        "piva": "010101010101"
+      }
+    ]
+  }
+}

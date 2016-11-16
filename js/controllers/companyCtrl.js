@@ -1,6 +1,6 @@
  
 
-app.controller('HomeCompanyCtrl', ['$scope', 'api' ,function($scope, api) {		
+app.controller('CompanyCtrl', ['$scope', 'api' ,function($scope, api) {		
 
 	api.get('datiAzienda').then(function(response){
 		$scope.company = response;

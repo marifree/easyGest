@@ -1,0 +1,17 @@
+{
+	"STATUS": "OK",
+	"MESSAGE": {
+		"ragioneSociale": "inTouch SRL",
+		"piva": "02195250507",
+		"indirizzo": "Via A. Bassi, 5",
+		"citta": "Pisa",
+		"cap": "56121",
+		"tel": "3289210210",
+		"emailAzienda": "info@intouch-srl.com",
+		"web": "www.intouch-srl.com",
+		"nome": "Rudy",
+		"cognome": "Fastelli",
+		"emailTecnico": "rudyfastelli@gmail.com",
+		"username": "rudy"
+	}
+}
