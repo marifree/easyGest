@@ -108,11 +108,13 @@ md-input-container label{margin: 0 16px;}
 .page-login md-card{position: relative;}
 .page-login .logo{ margin-top: 6px; margin-left: -12px; width: auto;}
 .page-login .box-logo{    left: 0;  right: 0;  margin: 0 auto; top:-45px; overflow: hidden; position: absolute; background-color: rgb(21, 101, 192); border: 1px solid #676767; width: 105px; height: 105px; border-radius: 50%;}
-.page-login .md-button{width: 100%;     padding: 7px;}
+.page-login .md-button{width: 100%; color:white !important; font-weight: bold;    padding: 7px;}
 .page-login .subtext{color:rgb(33,150,243); text-align: center; padding-top: 10px; font-size: 18px;}
 .page-login .link{margin: 23px 0; text-align: right; }
 .page-login .link a{text-decoration: none}
 .page-login .md-title{text-align: center; font-size: 30px; margin-top: 82px;}
 .page-login md-switch span{color: rgb(33,150,243);}
 .page-login md-switch span:hover{color: rgb(21, 101, 192);}
-.page-tech {}
+
+.page-tech h3{margin-bottom: 5px;}
+.page-tech .icon{fill: #b5b5b5;}

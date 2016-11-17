@@ -1,9 +1,15 @@
-app.controller('AppCtrl', ['$scope', '$location', '$mdSidenav', '$rootScope', function($scope, $location, $mdSidenav, $rootScope) {
+app.controller('AppCtrl', ['$scope', '$location', '$mdSidenav', '$rootScope', 'AuthFactory' , '$filter', function($scope, $location, $mdSidenav, $rootScope, AuthFactory, $filter) {
 	
 	//evanto cambio pagina
 	$rootScope.$on('$routeChangeStart', function (event, toState) {
 		//verifica se si trova nella pagina di login
 		$scope.isLogin = !!($location.path() == '/login');
+
+		angular.forEach($scope.menu, function(value, key){
+			if(value.link == $location.path()) value.active = true;
+			else value.active = false;
+		})
+
     });
 
 	//evento inizio chiamata al servizio
@@ -19,7 +25,7 @@ app.controller('AppCtrl', ['$scope', '$location', '$mdSidenav', '$rootScope', fu
 	//menu 
 	$scope.menu = [
 	    {
-	      link : '/',
+	      link : '/company',
 	      title: 'Dati azienda',
 	      icon: 'dashboard',
 	      active : true
@@ -45,12 +51,6 @@ app.controller('AppCtrl', ['$scope', '$location', '$mdSidenav', '$rootScope', fu
 	      title: 'Trash',
 	      icon: 'delete',
 	      active : false
-	    },
-	    {
-	      link : 'showListBottomSheet($event)',
-	      title: 'Settings',
-	      icon: 'settings',
-	      active : false
 	    }
   	];
 
@@ -61,5 +61,10 @@ app.controller('AppCtrl', ['$scope', '$location', '$mdSidenav', '$rootScope', fu
   	$scope.toggleSidenav = function(menuId) {
 	    $mdSidenav(menuId).toggle();
 	};
+
+	$scope.logout = function(){
+		AuthFactory.deleteSession();
+		$location.path( '/login' );
+	}
 	
 }]);

@@ -14,10 +14,7 @@ app.controller('CompanyCtrl', ['$scope', 'api' ,function($scope, api) {
 		if(img_url.length > 1 && !angular.element(img).hasClass('ng-hide')) {
 			fields.logo = img_url[1];
 		}
-		else{delete fields.logo;}
-
-		console.log(findDiff($scope.original_company,fields));
-		
+		else{delete fields.logo;}		
 	}
 
 	$scope.reset = function(){

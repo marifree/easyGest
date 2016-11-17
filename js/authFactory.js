@@ -39,6 +39,11 @@ app.factory('AuthFactory', ['$window', function($window){
 		else return false;
 	}
 
+	//elimina sessione
+	this.deleteSession = function(){
+		$window.localStorage.removeItem('session');
+	}
+
 	return this;
 
 }]);
