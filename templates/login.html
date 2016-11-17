@@ -1,6 +1,6 @@
 <ui-view layout="column" class="page-login" flex="20" layout-align="center center" layout-fill layout-padding >
 
-	<form name="myForm" ng-submit="login(credentials, isCompany)">
+	<form name="myForm" ng-submit="login(credentials, isCompany)" >
 		<md-card>
 
 			<md-card-header layout-align="center">				
@@ -30,7 +30,7 @@
 			</md-card-title>
 			<md-card-actions layout="row" layout-align="left">
 				<md-input-container flex="50">
-					<md-switch ng-model="isCompany" aria-label="Switch 1">Azienda</md-switch>
+					<md-switch ng-init="isCompany = true" ng-model="isCompany" aria-label="Switch 1">Azienda</md-switch>
 				</md-input-container>
 				<md-input-container flex="50">
 					<div class="link"><a href="" class="md-raised md-primary" type="submit">Ricorda Password</a></div>

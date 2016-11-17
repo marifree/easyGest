@@ -11,6 +11,7 @@
 		<div  layout="column" class="relative" layout-fill role="main">
 			<ng-include ng-if="!isLogin" src="'templates/header.html'"></ng-include>
 			<md-content  flex md-scroll-y>
+				<md-progress-linear md-mode="query" ng-disabled="!showProgressbas"></md-progress-linear>
 				<div ng-view layout="column" class="view"></div>
 			</md-content>
 		</div>

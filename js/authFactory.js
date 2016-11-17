@@ -17,12 +17,14 @@ app.factory('AuthFactory', ['$window', function($window){
 
 	//restituisce il sessionID
 	this.getSessionID = function(){
-		return this.getSession().sessionID;
+		if(this.isAuthenticated()) return this.getSession().id;
+		else null;
 	}
 
 	//restituisce il tipo di utente
 	this.getTypeUser = function(){
-		return this.getSession().user;
+		if(this.isAuthenticated()) return this.getSession().user;
+		else null;
 	}
 
 	//restituisce true se l'utente è di tipo admin

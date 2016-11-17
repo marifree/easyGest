@@ -50,14 +50,15 @@ app.config(['$routeProvider', '$mdThemingProvider', function ($routeProvider, $m
 }]);
 
 app.run(['$rootScope', 'AuthFactory', '$location', function($rootScope, AuthFactory, $location){
+    if(!AuthFactory.isAuthenticated()){ $location.path('/login'); /* utente non autenticato */ }
+    else{
+        /* utente autenticato */
+        if(AuthFactory.isAdmin()) { $location.path('/companies'); }
+        else { $location.path('/company'); }
+    }
     $rootScope.$on('$routeChangeStart', function (event, toState) {
 
-        if(!AuthFactory.isAuthenticated()){ $location.path('/login'); /* utente non autenticato */ }
-        else{
-            /* utente autenticato */
-            if(AuthFactory.isAdmin()) { $location.path('/companies'); }
-            else { $location.path('/company'); }
-        }
+        
 
     });
 }]);

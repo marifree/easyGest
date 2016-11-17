@@ -1,7 +1,21 @@
-app.controller('AppCtrl', ['$scope', '$location', '$mdSidenav', function($scope, $location, $mdSidenav) {
-	//verifica se si trova nella pagina di login
-	$scope.isLogin = !!($location.path() == '/login');
+app.controller('AppCtrl', ['$scope', '$location', '$mdSidenav', '$rootScope', function($scope, $location, $mdSidenav, $rootScope) {
 	
+	//evanto cambio pagina
+	$rootScope.$on('$routeChangeStart', function (event, toState) {
+		//verifica se si trova nella pagina di login
+		$scope.isLogin = !!($location.path() == '/login');
+    });
+
+	//evento inizio chiamata al servizio
+    $rootScope.$on('startcallservice', function (event, toState) {
+		$scope.showProgressbas = true;
+    });
+
+    //evento fine chiamata al servizio
+    $rootScope.$on('endcallservice', function (event, toState) {
+		$scope.showProgressbas = false;
+    });
+
 	//menu 
 	$scope.menu = [
 	    {
