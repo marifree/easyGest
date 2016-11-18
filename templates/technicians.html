@@ -10,14 +10,14 @@
 					  		
 					  		<md-list-item ng-repeat="item in technicians | filter:search" class="md-2-line" ng-repeat="phone in phones">
 					          
-					          <div class="md-list-item-text" ng-class="{'md-offset': phone.options.offset }">
+					          <div class="md-list-item-text" ng-class="{'md-offset': phone.options.offset }" ng-init="item.longname = item.nome+ '' + item.cognome">
 					            <h3> {{item.nome}} {{item.cognome}}</h3>
 					            <p> {{item.email}} </p>
 					          </div>
-					          <md-button class="md-secondary md-icon-button" ng-click="doSecondaryAction($event)" >
+					          <md-button class="md-secondary md-icon-button" ng-click="edit(item)" >
 					            <ng-md-icon class="icon icon-edit" icon="edit"></ng-md-icon>
 					          </md-button>
-					          <md-button class="md-secondary md-icon-button" ng-click="doSecondaryAction($event)" >
+					          <md-button class="md-secondary md-icon-button" ng-click="delete(item)" >
 					            <ng-md-icon class="icon icon-edit" icon="delete"></ng-md-icon>
 					          </md-button>
 					          <md-divider ng-if="!$last"></md-divider>								  	

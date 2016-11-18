@@ -51,7 +51,10 @@ app.config(['$routeProvider', '$mdThemingProvider', function ($routeProvider, $m
 
 app.run(['$rootScope', 'AuthFactory', '$location', function($rootScope, AuthFactory, $location){
     if(!AuthFactory.isAuthenticated()){ $location.path('/login'); /* utente non autenticato */ }
-    
+    else{
+        if($location.path() == '' && AuthFactory.isAdmin()){ $location.path('/companies'); }
+        if($location.path() == '' && AuthFactory.isCompany()){ $location.path('/company'); }
+    }
     $rootScope.$on('$routeChangeStart', function (event, toState) {
 
         

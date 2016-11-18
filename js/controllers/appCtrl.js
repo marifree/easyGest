@@ -4,6 +4,7 @@ app.controller('AppCtrl', ['$scope', '$location', '$mdSidenav', '$rootScope', 'A
 	$rootScope.$on('$routeChangeStart', function (event, toState) {
 		//verifica se si trova nella pagina di login
 		$scope.isLogin = !!($location.path() == '/login');
+		$scope.viewTitle = !!($location.path() == '/technicians');
 
 		angular.forEach($scope.menu, function(value, key){
 			if(value.link == $location.path()) value.active = true;
@@ -37,7 +38,7 @@ app.controller('AppCtrl', ['$scope', '$location', '$mdSidenav', '$rootScope', 'A
 	      active : false
 	    },
 	    {
-	      link : '',
+	      link : '/technical-operations',
 	      title: 'Interventi',
 	      icon: 'message',
 	      active : false
@@ -54,8 +55,6 @@ app.controller('AppCtrl', ['$scope', '$location', '$mdSidenav', '$rootScope', 'A
 	    }
   	];
 
-  	$scope.viewTitle = false;
-
   	$scope.go = function(path){ $location.path( path ); }
 
   	$scope.toggleSidenav = function(menuId) {
@@ -67,4 +66,10 @@ app.controller('AppCtrl', ['$scope', '$location', '$mdSidenav', '$rootScope', 'A
 		$location.path( '/login' );
 	}
 	
+	$scope.search = {};
+	$scope.showSearch = false;
+	
+	$scope.toogleSearch = function(){
+		$scope.showSearch = !$scope.showSearch;
+	}
 }]);
