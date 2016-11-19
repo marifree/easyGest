@@ -1,6 +1,8 @@
-app.controller('CompanyCtrl', ['$scope', 'api' ,function($scope, api) {		
-	
-	api.call('datiAzienda').then(function(response){
+app.controller('CompanyCtrl', ['$scope', 'api', '$routeParams',function($scope, api, $routeParams) {		
+	var params = {};
+	if($routeParams.id) params.piva = $routeParams.id;
+
+	api.call('datiAzienda', params).then(function(response){
 		$scope.company = response;
 		$scope.file = $scope.company.logoPath;
 		$scope.original_company = angular.copy($scope.company);

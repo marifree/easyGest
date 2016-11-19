@@ -13,7 +13,7 @@ app.config(['$routeProvider', '$mdThemingProvider', function ($routeProvider, $m
         templateUrl: 'templates/update-password.html',
         controller: 'UpdatePasswordCtrl',
     }).        
-        when('/company', {
+        when('/company/', {
         templateUrl: 'templates/company.html',
         controller: 'CompanyCtrl',
     }).
@@ -21,7 +21,7 @@ app.config(['$routeProvider', '$mdThemingProvider', function ($routeProvider, $m
         templateUrl: 'templates/companies.html',
         controller: 'CompaniesCtrl',
     }).
-        when('/edit-company', {
+        when('/edit-company/:id?', {
         templateUrl: 'templates/edit-company.html',
         controller: 'CompanyCtrl',
     }).
@@ -64,5 +64,5 @@ app.run(['$rootScope', 'AuthFactory', '$location', function($rootScope, AuthFact
 
 /* ---- CONSTANT ---- */
 // http://www.bluelionsoftware.com/easyGest/v1/
-app.constant('BASE_URL', 'http://www.bluelionsoftware.com/easyGest/v1/');
+app.constant('BASE_URL', 'http://www.bluelionsoftware.com/iGestTech/v1/');
 

@@ -1,28 +1,103 @@
 <!--md-button class="md-fab md-fab-bottom-right" aria-label="Add" ng-click="showAdd($event)">
 	<ng-md-icon icon="add"></ng-md-icon>
 </md-button-->
-<md-toolbar ng-show="!showSearch">
+<md-toolbar ng-show="!showToolbarSearchTech && !showToolbarSearchOper && !showToolbarSearchCompany">
+	<div class="md-toolbar-tools">
+		<md-button ng-click="toggleSidenav('left')" hide-gt-md aria-label="Menu">
+			<ng-md-icon icon="menu"></ng-md-icon>
+		</md-button>				
+	</div>
+</md-toolbar>
+<md-toolbar ng-show="showToolbarSearchTech && !showSearchOperearchTech">
 	<div class="md-toolbar-tools">
 		<md-button ng-click="toggleSidenav('left')" hide-gt-md aria-label="Menu">
 			<ng-md-icon icon="menu"></ng-md-icon>
 		</md-button>
-		<!--h3 ng-if="viewTitle">Enel srl</h3-->
 		<span flex></span>
-		<md-button ng-if="viewTitle" aria-label="Search" ng-click="toogleSearch()">
+		<md-button aria-label="Search" ng-click="toogleSearchTech()">
 			<ng-md-icon icon="search"></ng-md-icon>
 		</md-button>			
 	</div>
 </md-toolbar>
-<md-toolbar class="" ng-show="showSearch">
+<md-toolbar ng-show="showToolbarSearchOper && !showSearchOper">
 	<div class="md-toolbar-tools">
-		<md-button ng-click="showSearch = !showSearch" aria-label="Back">
+		<md-button ng-click="toggleSidenav('left')" hide-gt-md aria-label="Menu">
+			<ng-md-icon icon="menu"></ng-md-icon>
+		</md-button>
+		<span flex></span>
+		<md-button aria-label="Search" ng-click="toogleSearchOper()">
+			<ng-md-icon icon="search"></ng-md-icon>
+		</md-button>			
+	</div>
+</md-toolbar>
+<md-toolbar ng-show="showToolbarSearchCompany && !showSearchCompany">
+	<div class="md-toolbar-tools">
+		<md-button ng-click="toggleSidenav('left')" hide-gt-md aria-label="Menu">
+			<ng-md-icon icon="menu"></ng-md-icon>
+		</md-button>
+		<span flex></span>
+		<md-button aria-label="Search" ng-click="toogleSearchCompany()">
+			<ng-md-icon icon="search"></ng-md-icon>
+		</md-button>			
+	</div>
+</md-toolbar>
+<md-toolbar ng-show="showToolbarSearchTech && showSearchOperearchTech">
+	<div class="md-toolbar-tools">
+		<md-button ng-click="toogleSearchTech()" aria-label="Back">
 			<ng-md-icon icon="arrow_back"></ng-md-icon>
 		</md-button>
 		<md-input-container md-theme="input" flex>
 			<label>&nbsp;</label>
-			<input ng-model="search.longname" placeholder="enter search">
+			<input ng-model="searchTech.longname" placeholder="Cerca un tecnico">
 		</md-input-container>
-		<md-button aria-label="Search" ng-click="showSearch = !showSearch">
+		<md-button aria-label="Search" ng-click="toogleSearchTech()">
+			<ng-md-icon icon="search"></ng-md-icon>
+		</md-button>			
+	</div>	   
+</md-toolbar>
+<md-toolbar ng-show="showToolbarSearchCompany && showSearchCompany">
+	<div class="md-toolbar-tools">
+		<md-button ng-click="toogleSearchCompany()" aria-label="Back">
+			<ng-md-icon icon="arrow_back"></ng-md-icon>
+		</md-button>
+		<md-input-container md-theme="input" flex>
+			<label>&nbsp;</label>
+			<input ng-model="searchCompany.ragioneSociale" placeholder="Cerca una azienda">
+		</md-input-container>
+		<md-button aria-label="Search" ng-click="toogleSearchCompany()">
+			<ng-md-icon icon="search"></ng-md-icon>
+		</md-button>			
+	</div>	   
+</md-toolbar>
+
+
+<md-toolbar ng-show="showToolbarSearchOper && showSearchOper">
+	<div class="md-toolbar-tools">
+		<md-button ng-click="toogleSearchOper()" aria-label="Back">
+			<ng-md-icon icon="arrow_back"></ng-md-icon>
+		</md-button>
+		<md-input-container md-theme="input" flex="20">
+			<label>&nbsp;</label>
+			<input ng-model="searchOper.ragioneSocialeCliente" placeholder="Cerca per cliente">
+		</md-input-container>
+		<md-input-container md-theme="input" flex="20">
+			<label>&nbsp;</label>
+			<input ng-model="searchOper.nomeTecnico" placeholder="Nome del tecnico">
+		</md-input-container>
+		<md-input-container md-theme="input" flex="20">
+			<label>&nbsp;</label>
+			<input ng-model="searchOper.cognomeTecnico" placeholder="Cognome del tecnico">
+		</md-input-container>
+		<md-input-container md-theme="input" flex="10">
+			<label>&nbsp;</label>
+			<input ng-model="searchOper.dataDa" placeholder="data da">
+		</md-input-container>
+		<md-input-container md-theme="input" flex="10">
+			<label>&nbsp;</label>
+			<input ng-model="searchOper.dataA" placeholder="data a">
+		</md-input-container>
+		<span flex="10"></span>
+		<md-button aria-label="Search" ng-click="clicksearchOper(searchOper)">
 			<ng-md-icon icon="search"></ng-md-icon>
 		</md-button>			
 	</div>	   

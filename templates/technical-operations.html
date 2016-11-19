@@ -6,21 +6,25 @@
 			<ng-switch on="data.selectedIndex" class="tabpanel-container">
 			  	<div id="tab1-content" aria-labelledby="tab1"  layout="row" layout-align="center center">
 				  	<md-card flex-gt-sm="90" flex-gt-md="80">
-						<md-card-content>                     
-					  		
-					  		<md-list-item ng-repeat="item in operations " class="md-2-line" ng-repeat="phone in phones">
+						<md-card-content> 
+					  		<md-list-item ng-repeat="item in operations" class="md-3-line" ng-repeat="phone in phones">
 					          
 					          <div class="md-list-item-text" ng-class="{'md-offset': phone.options.offset }" ng-init="item.longname = item.nome+ '' + item.cognome">
-					            <h3> {{item.numeroRapporto}} </h3>
-					            <p> {{item.Cliente}} </p>
+					            <h3 class="title-item"> {{item.numeroRapporto}} </h3>
+					            <p> {{formatDate(item.Data)}} </p>
+					            <p> {{item.Cliente}} - {{item.Tecnico}}</p>					           
 					          </div>
-					          <md-button class="md-secondary md-icon-button" ng-click="edit(item)" >
-					            <ng-md-icon class="icon" icon="pdf"></ng-md-icon>
+					          <md-button class="md-secondary" ng-click="openUrl(item.PDFAzienda)" >
+					            <img src="img/icon-pdf.png" class="icon icon-pdf" />
+					            <div class="icon-text-pdf">Report</div> 
 					          </md-button>
-					          <md-button class="md-secondary " ng-click="delete(item)" >
-					          	
-					            <ng-md-icon class="icon" icon="file_download"></ng-md-icon>
-					            Report
+					          <md-button class="md-secondary" ng-click="openUrl(item.PDFMaterialePreventivato)">
+					            <img src="img/icon-pdf.png" class="icon icon-pdf" />
+					            <div class="icon-text-pdf">Materiale<br>Preventivato</div> 
+					          </md-button>
+					          <md-button class="md-secondary" ng-click="openUrl(item.PDFMaterialeUtilizzato)" >
+					            <img src="img/icon-pdf.png" class="icon icon-pdf" />
+					            <div class="icon-text-pdf">Materiale<br>Utilizzato</div> 
 					          </md-button>
 					          <md-divider ng-if="!$last"></md-divider>								  	
 					        </md-list-item>

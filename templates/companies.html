@@ -1,0 +1,31 @@
+
+<div layout="column" class="relative page-tech" layout-fill role="main">
+	<md-content flex md-scroll-y  ng-show="!showProgressbas">
+		<ui-view layout="column" layout-fill layout-padding>
+		  	<div class="inset" hide-sm></div>
+			<ng-switch on="data.selectedIndex" class="tabpanel-container">
+			  	<div id="tab1-content" aria-labelledby="tab1"  layout="row" layout-align="center center">
+				  	<md-card flex-gt-sm="90" flex-gt-md="80">
+						<md-card-content>                     
+					  		
+					  		<md-list-item ng-repeat="item in companies | filter:searchCompany" class="md-2-line" ng-repeat="phone in phones">
+					          
+					          <div class="md-list-item-text" ng-class="{'md-offset': phone.options.offset }">
+					            <h3> {{item.ragioneSociale}} </h3>
+					            <p> {{item.piva}} </p>
+					          </div>
+					          <md-button class="md-secondary md-icon-button" ng-click="go('/edit-company/'+item.piva)" >
+					            <ng-md-icon class="icon icon-edit" icon="edit"></ng-md-icon>
+					          </md-button>
+					          <md-divider ng-if="!$last"></md-divider>								  	
+					        </md-list-item>
+
+						</md-card-content>
+				  	</md-card>
+			  	</div>              
+			  
+		  	</ng-switch>
+
+		</ui-view>
+	</md-content>
+</div>

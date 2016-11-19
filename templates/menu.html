@@ -4,19 +4,20 @@
 	</div>
 </md-toolbar>	
 <md-list flex>    	
-    <md-list-item ng-repeat="item in menu" ng-class="{'md-1-line' : true, 'selected' : item.active}"  ng-click="go(item.link)">
+    <md-list-item ng-if="!isAdmin" ng-repeat="item in menu" ng-class="{'md-1-line' : true, 'selected' : item.active}"  ng-click="go(item.link)">
       	<ng-md-icon class="icon" icon="{{item.icon}}"></ng-md-icon>
         	<div class="md-list-item-text">
           	<p>{{item.title}}</p>
         	</div>
       </md-list-item>
-      <md-subheader class="md-no-sticky">Management</md-subheader>
-      <md-list-item ng-repeat="item in admin" ng-class="{'md-1-line' : true, 'selected' : item.active}"  ng-click="go(item.link)">
-      	<ng-md-icon class="icon" icon="{{item.icon}}"></ng-md-icon>
-        	<div class="md-list-item-text">
-          	<p>{{item.title}}</p>
-        	</div>
+      <md-list-item ng-if="isAdmin" ng-repeat="item in admin" ng-class="{'md-1-line' : true, 'selected' : item.active}"  ng-click="go(item.link)">
+        <ng-md-icon class="icon" icon="{{item.icon}}"></ng-md-icon>
+          <div class="md-list-item-text">
+            <p>{{item.title}}</p>
+          </div>
       </md-list-item>
+      <!--md-subheader class="md-no-sticky">Management</md-subheader-->
+      
       <md-list-item ng-class="{'md-1-line' : true}"  ng-click="logout()">
         <ng-md-icon class="icon" icon="exit_to_app"></ng-md-icon>
           <div class="md-list-item-text">
