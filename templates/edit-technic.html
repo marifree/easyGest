@@ -1,0 +1,43 @@
+<ui-view layout="column" layout-fill layout-padding >
+	
+    <form name="myForm" ng-submit="editCompany(technic)" >
+    <md-card >
+    	
+    	<md-card-title>  		
+          	
+          	<md-card-title-text layout="row" layout-wrap>
+
+				  <md-input-container flex="50">
+				    <label>Nome</label>
+				    <input name="name" id="name" ng-model="technic.nome" ng-required="true">
+				    <div ng-messages="myForm.name.$error" ng-show="myForm.name.$touched">
+				      <div ng-message="required">Questo campo e' obblicatorio</div>
+				    </div>
+				  </md-input-container>
+				  <md-input-container flex="50">
+				    <label>Cognome</label>
+				    <input name="cognome" id="cognome" ng-model="technic.cognome" ng-required="true">
+				    <div ng-messages="myForm.cognome.$error" ng-show="myForm.cognome.$touched">
+				      <div ng-message="required">Questo campo e' obblicatorio</div>
+				    </div>
+				  </md-input-container>
+				  <md-input-container flex="100">
+				    <label>Email</label>
+				    <input name="email" id="email" ng-model="technic.email" ng-required="true">
+				    <div ng-messages="myForm.email.$error" ng-show="myForm.email.$touched">
+				      <div ng-message="required">Questo campo e' obblicatorio</div>
+				    </div>
+				  </md-input-container>				  
+				  
+		  	</md-card-title-text>			 
+			
+		</md-card-title> 
+
+		<md-card-actions layout="row" layout-align="end center">		
+		    <md-button type="button" class="md-raised "ng-click="back()">Annulla</md-button>
+		    <md-button type="submit" class="md-raised md-primary" ng-disabled="myForm.$invalid">Salva</md-button>
+		</md-card-actions>	
+		
+	</md-card>
+	</form>
+</ui-view>

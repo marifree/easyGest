@@ -1,4 +1,4 @@
-app.controller('CompanyCtrl', ['$scope', 'api', '$routeParams',function($scope, api, $routeParams) {		
+app.controller('CompanyCtrl', ['$scope', 'api', '$routeParams', '$window',function($scope, api, $routeParams, $window) {		
 	var params = {};
 	if($routeParams.id) params.piva = $routeParams.id;
 
@@ -16,7 +16,10 @@ app.controller('CompanyCtrl', ['$scope', 'api', '$routeParams',function($scope, 
 		if(img_url.length > 1 && !angular.element(img).hasClass('ng-hide')) {
 			fields.logo = img_url[1];
 		}
-		else{delete fields.logo;}		
+		else{delete fields.logo;}
+		var params = findDiff($scope.original_company, fields)
+		api.call('updateDatiAzienda', params).then(function(response){ $window.history.back(); });
+
 	}
 
 	$scope.reset = function(){

@@ -1,9 +1,10 @@
-app.controller('AppCtrl', ['$scope', '$location', '$mdSidenav', '$rootScope', 'AuthFactory' , '$filter', 'api', function($scope, $location, $mdSidenav, $rootScope, AuthFactory, $filter, api) {
+app.controller('AppCtrl', ['$scope', '$location', '$mdSidenav', '$rootScope', 'AuthFactory' , '$filter', 'api', '$window', function($scope, $location, $mdSidenav, $rootScope, AuthFactory, $filter, api, $window) {
 	
 	//evanto cambio pagina
 	$rootScope.$on('$routeChangeStart', function (event, toState) {
 		//verifica se si trova nella pagina di login
-		$scope.isLogin = !!($location.path() == '/login');
+		$scope.isLogin = (!!($location.path() == '/login') || !!($location.path() == '/signup') || !!($location.path() == '/forgot-password') || !!($location.path() == '/update-password-by-code'));
+		
 		$scope.showToolbarSearchTech = !!($location.path() == '/technicians');
 		$scope.showToolbarSearchOper = !!($location.path() == '/technical-operations');
 		$scope.showToolbarSearchCompany = !!($location.path() == '/companies');
@@ -88,6 +89,7 @@ app.controller('AppCtrl', ['$scope', '$location', '$mdSidenav', '$rootScope', 'A
   	];
 
   	$scope.go = function(path){ $location.path( path ); }
+  	$scope.back = function(path){ $window.history.back(); }
 
   	$scope.toggleSidenav = function(menuId) {
 	    $mdSidenav(menuId).toggle();

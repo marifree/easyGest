@@ -12,4 +12,14 @@ app.controller('LoginCtrl', ['$scope', 'api', 'AuthFactory', '$location', functi
 		if(isCompany) $scope.loginCompany(credentials);
 		else $scope.loginAdmin(credentials);
 	}
+
+	//invio code tramite email
+	$scope.forgotPassowrd = function(params){
+		api.call('codeGeneratorAzienda', params).then(function(response){ if(response){ $location.path('/update-password-by-code'); } else {console.log('Errore recupero password',response)}});
+	}
+
+	//upload password tramite email
+	$scope.updatePassowrdByCode = function(params){
+		api.call('updatePasswordByCodeAzienda', params).then(function(response){ if(response){ $location.path('/login'); } else {console.log('Errore recupero password',response)}});
+	}
 }]);

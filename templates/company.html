@@ -1,20 +1,21 @@
 <ui-view layout="column" layout-fill layout-padding>
 	<md-card ng-show="!showProgressbas">
-        <md-card-title>          
-          <md-card-title-media>
-            <img ng-src="{{company.logoPath}}" width="152px" class="md-card-image" alt="{{company.ragioneSociale}}">
-          </md-card-title-media>
+        <md-card-title layout="row">         
+          
           <md-card-title-text>
-            <span class="md-headline">{{company.ragioneSociale}}</span>
-            <span class="md-subhead">{{company.indirizzo}} - {{company.cap}} - {{company.citta}}</span>
-            <span class="md-subhead">P.I. {{company.piva}}</span>
+            <img ng-src="{{company.logoPath}}" height="auto" width="276px" class="md-card-image" alt="{{company.ragioneSociale}}">
+            
           </md-card-title-text>
-          <md-card-content layout="row">
+          <md-card-content >
+            <p><span class="md-headline">{{company.ragioneSociale}}</span></p>
+            <span class="md-subhead">{{company.indirizzo}} - {{company.cap}} - {{company.citta}}</span>
+            <p><span class="md-subhead">P.I. {{company.piva}}</span></p>
             <p><strong>Num di tecnici: </strong>{{company.maxNumTecnici}}</p>
+            
           </md-card-content>
         </md-card-title>
         <md-card-actions layout="row" layout-align="end center">
-          <md-button class="md-raised ">Rinnova account</md-button>
+          <md-button class="md-raised md-accent">Rinnova account</md-button>
           <md-button class="md-raised md-primary" ng-click="go('/edit-company')">Modifica dati</md-button>
         </md-card-actions>
     </md-card>    

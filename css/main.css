@@ -102,12 +102,14 @@ md-list-item.selected .icon{fill: rgb(21, 101, 192);}
 md-input-container{margin: 13px 0; padding: 0 16px;}
 md-input-container label{margin: 0 16px;}
 
+.md-accent{color:white !important;}
+
 .upload-hover{background-color: rgba(208, 208, 208, 0.22) !important; background-image:none;  width: 163px; height: 163px; top:-1px; left:-1px; z-index: 9999; position: absolute; }
 .icon-upload-hover{position: absolute; bottom: 0; right: 0; fill: #505050; font-size: 20px;}
 .box-upload-image{position: relative; overflow: hidden;  width: 152px; height: 152px;  border: 1px solid #d0d0d0; cursor: pointer; padding: 5px;}
 .page-login md-card{position: relative;}
-.page-login .logo{ margin-top: 6px; margin-left: -12px; width: auto;}
-.page-login .box-logo{    left: 0;  right: 0;  margin: 0 auto; top:-45px; overflow: hidden; position: absolute; background-color: rgb(21, 101, 192); border: 1px solid #676767; width: 105px; height: 105px; border-radius: 50%;}
+.page-login .logo{ margin-top: -5px; margin-left: -1px; background-color: white; width: 258px;}
+.page-login .box-logo{    left: 0;  right: 0;  margin: 0 auto; top:-45px; overflow: hidden; position: absolute; border: 1px solid #dedede; width: 90px; height: 90px; border-radius: 50%;}
 .page-login .md-button{width: 100%; color:white !important; font-weight: bold;    padding: 7px;}
 .page-login .subtext{color:rgb(33,150,243); text-align: center; padding-top: 10px; font-size: 18px;}
 .page-login .link{margin: 23px 0; text-align: right; }
@@ -124,3 +126,4 @@ md-input-container label{margin: 0 16px;}
 .page-tech .icon-pdf{width: 35px}
 .page-tech .icon-text-pdf{color: #929292;    line-height: 14px;   font-size: 11px;  padding-bottom: 5px;}
 .page-tech .title-item{    color: #2196f3;  font-weight: bold;}
+
