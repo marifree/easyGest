@@ -1,6 +1,6 @@
 <ui-view layout="column" layout-fill layout-padding >
 	
-    <form name="myForm" ng-submit="editCompany(company)" >
+    <form name="myForm" ng-submit="myForm.$valid && editCompany(company)" >
     <md-card >
     	
     	<md-card-title>  
@@ -73,14 +73,14 @@
 				  </md-input-container>
 				  <md-input-container flex="30">
 				    <label>Web</label>
-				    <input name="web" id="web" ng-model="company.web" ng-required="true">
+				    <input name="web" id="web" ng-model="company.web">
 				    <div ng-messages="myForm.web.$error" ng-show="myForm.web.$touched">
 				      <div ng-message="required">Questo campo e' obblicatorio</div>
 				    </div>
 				  </md-input-container>
 				  <md-input-container flex="30">
 				    <label>Referente</label>
-				    <input name="referente" id="referente" ng-model="company.referente" ng-required="true">
+				    <input name="referente" id="referente" ng-model="company.referente">
 				    <div ng-messages="myForm.referente.$error" ng-show="myForm.referente.$touched">
 				      <div ng-message="required">Questo campo e' obblicatorio</div>
 				    </div>

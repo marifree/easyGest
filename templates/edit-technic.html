@@ -1,6 +1,6 @@
 <ui-view layout="column" layout-fill layout-padding >
 	
-    <form name="myForm" ng-submit="editCompany(technic)" >
+    <form name="myForm" ng-submit="myForm.$valid && editTechnic(technic)" >
     <md-card >
     	
     	<md-card-title>  		
@@ -23,8 +23,8 @@
 				  </md-input-container>
 				  <md-input-container flex="100">
 				    <label>Email</label>
-				    <input name="email" id="email" ng-model="technic.email" ng-required="true">
-				    <div ng-messages="myForm.email.$error" ng-show="myForm.email.$touched">
+				    <input name="emailTecnico" id="emailTecnico" ng-model="technic.emailTecnico" ng-required="true">
+				    <div ng-messages="myForm.emailTecnico.$error" ng-show="myForm.emailTecnico.$touched">
 				      <div ng-message="required">Questo campo e' obblicatorio</div>
 				    </div>
 				  </md-input-container>				  

@@ -1,11 +1,11 @@
 <ui-view layout="column" class="page-login" flex="20" layout-align="center center" layout-fill layout-padding >
 
-	<form name="myForm" ng-submit="login(credentials, isCompany)" >
+	<form name="myForm" ng-submit="myForm.$valid && login(credentials, isCompany)" >
 		<md-card>
 
 			<md-card-header layout-align="center">				
 				<md-card-header-text >
-					<div class="box-logo"><img src="img/logo.png" class="logo"></div>
+					<div class="box-logo"><a href="http://www.iGestTech.it"><img src="img/logo.png" class="logo"></div></a>
 					<span class="md-title">Benvenuto in iGestTech.</span>
 					<small class="subtext">Accedi come <span ng-if="isCompany">azienda</span><span ng-if="!isCompany">amministratore</span></small>
 				</md-card-header-text>

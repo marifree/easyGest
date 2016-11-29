@@ -1,93 +1,11 @@
 /*
-md-content.md-default-theme {
-  background-color: #eee;
-}
-
-md-card {
-  background-color: #fff;
-}
-md-card h2:first-of-type {
-  margin-top: 0;
-}
-
-md-toolbar .md-button.md-default-theme {
-  border-radius: 99%;
-}
-
-h2 {
-  font-weight: 400;
-}
-
-.md-toolbar-tools-bottom {
-  font-size: small;
-}
-.md-toolbar-tools-bottom :last-child {
-  opacity: 0.8;
-}
-
-md-toolbar:not(.md-hue-1),
-.md-fab {
-  fill: #fff;
-}
-
-md-sidenav {
-  fill: #737373;
-}
-md-sidenav ng-md-icon {
-  position: relative;
-  top: 5px;
-}
-
-.user-avatar {
-  border-radius: 99%;
-}
-
-md-toolbar.md-tall{
-  height: 64px;
-  min-height: 64px;
-}
-
-.item-menu{padding-top: 16px;}
-
-
-md-input-container > md-select {
-  display: block;
-  margin-top: 0;
-  padding-bottom: 0;
-}
-md-select .md-select-label.md-placeholder {
-  color: rgba(0,0,0,0.26);
-  font-weight: 700;
-}
-md-input-container > md-select > md-select-label {
-  font-weight: 400;
-}
-md-select.ng-invalid.ng-dirty .md-select-label {
-  color: rgba(0,0,0,0.26) !important;
-}
-md-input-container > md-radio-group {
-  padding: 24px 2px 0;
-}
-md-input-container > md-radio-group > md-radio-button {
-  margin: 8px 5px 0;
-  display: inline-block;
-}
-
-form {
-  margin: 10px auto;
- 
-  padding: 0 20px;
-  width: 640px;
-  border: 0;
-}
-*/
-/*
 grey #505050
 SELECTED rgb(21, 101, 192)
 azzurro chiaro rgb(33,150,243)
+ARANCIO rgb(255,171,64)
 */
 .view{width: 100%;}
-
+.light{color:rgb(255,171,64);}
 md-toolbar.md-tall{ height: 64px; min-height: 64px;  max-height: 64px;}
 md-toolbar ng-md-icon{fill:#fff;}
 md-toolbar md-input-container{margin-top: 40px;}
@@ -102,7 +20,7 @@ md-list-item.selected .icon{fill: rgb(21, 101, 192);}
 md-input-container{margin: 13px 0; padding: 0 16px;}
 md-input-container label{margin: 0 16px;}
 
-.md-accent{color:white !important;}
+.md-accent{color:white !important; fill:white !important;}
 
 .upload-hover{background-color: rgba(208, 208, 208, 0.22) !important; background-image:none;  width: 163px; height: 163px; top:-1px; left:-1px; z-index: 9999; position: absolute; }
 .icon-upload-hover{position: absolute; bottom: 0; right: 0; fill: #505050; font-size: 20px;}
@@ -126,4 +44,12 @@ md-input-container label{margin: 0 16px;}
 .page-tech .icon-pdf{width: 35px}
 .page-tech .icon-text-pdf{color: #929292;    line-height: 14px;   font-size: 11px;  padding-bottom: 5px;}
 .page-tech .title-item{    color: #2196f3;  font-weight: bold;}
+
+.fab-edit{    position: absolute;  top: 21px;  right: 15px;}
+
+.switch-tech {margin-top: 24px;}
+.switch-tech.md-checked .md-thumb{background-color: rgb(56, 152, 45);}
+.switch-tech.md-checked .md-bar{background-color: rgb(143, 175, 139);}
+
+.isNotActive{color: #c5c5c5;}
 

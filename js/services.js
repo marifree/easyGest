@@ -1,4 +1,5 @@
-app.service('api', ['$http', 'BASE_URL', 'AuthFactory', '$rootScope', function($http, BASE_URL, AuthFactory, $rootScope){
+app.service('api', ['$http', 'BASE_URL', 'AuthFactory', '$rootScope', '$location', '$mdDialog',
+	function($http, BASE_URL, AuthFactory, $rootScope, $location, $mdDialog){
 
 	this.call = function(service, params){
 		var parameters = params ? params : {};
@@ -17,7 +18,37 @@ app.service('api', ['$http', 'BASE_URL', 'AuthFactory', '$rootScope', function($
 
 	var handleError = function(response){
 		console.log('-- ERROR --', response);
+
 		$rootScope.$broadcast("endcallservice");
+		
+		/* -------------- gestione errore ------------------- */
+		if(response.data != null){
+			switch(response.data.ERROR_CODE){
+				case '4001':
+					AuthFactory.deleteSession();
+					$location.path('/login');
+				break;
+				default:
+					$mdDialog.show(
+				      $mdDialog.alert()
+				        .clickOutsideToClose(false)
+				        .title('Attenzione.')
+				        .textContent(response.data.ERROR)
+				        .ok('Ok')
+				    ).then(function(s){console.log(s)});
+				break;
+			}
+		}
+		else{
+			$mdDialog.show(
+		      $mdDialog.alert()
+		        .clickOutsideToClose(true)
+		        .title('Attenzione.')
+		        .textContent('Errore dal server')
+		        .ok('Ok')
+		    ).then(function(){console.log('errore')});
+		}
+
 		return false;
 	}	
 

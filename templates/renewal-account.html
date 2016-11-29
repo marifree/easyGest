@@ -1,0 +1,87 @@
+<ui-view layout="column" layout-fill layout-padding>
+	<md-card ng-show="!showProgressbas" >
+		<md-card-header layout-align="center">				
+			<md-card-header-text >					
+				<span class="md-title">Rinnova il tuo account</span>		
+			</md-card-header-text>
+		</md-card-header>	
+        <md-card-title>         
+        	
+
+          <md-card-title-text layout="row">
+           <form name="myForm" ng-submit="myForm.$valid && renewalAccount(credentials, 'calcola')" >
+          		<md-input-container >
+			    <label>Numero dei tecnici</label>
+			    <input type="number" name="numeroTecnici" id="numeroTecnici" ng-model="credentials.numeroTecnici" ng-required="true">
+			    <div ng-messages="myForm.numeroTecnici.$error" ng-show="myForm.numeroTecnici.$touched">
+			      <div ng-message="required">Questo campo e' obblicatorio</div>
+			    </div>
+			  </md-input-container>
+			  <md-input-container>
+			    <label>Numero anni</label>
+			    <input type="number" name="numeroAnni" id="numeroAnni" ng-model="credentials.numeroAnni" ng-required="true">
+			    <div ng-messages="myForm.numeroAnni.$error" ng-show="myForm.numeroAnni.$touched">
+			      <div ng-message="required">Questo campo e' obblicatorio</div>
+			    </div>
+			  </md-input-container>
+			  <md-input-container>
+			    <label>Coupon</label>
+			    <input type="text" name="coupon" id="coupon" ng-model="credentials.coupon">
+			    <div ng-messages="myForm.coupon.$error" ng-show="myForm.coupon.$touched">
+			      <div ng-message="required">Questo campo e' obblicatorio</div>
+			    </div>
+			  </md-input-container>	
+			  <md-input-container flex="100" layout-align="center">
+		  		<md-button class="md-raised md-primary" type="submit">Calcola Preventivo</md-button>
+			 </md-input-container>
+			</form>
+           
+          </md-card-title-text>
+          <md-card-content layout="row">
+          
+            
+            
+          </md-card-content>
+        </md-card-title>        
+        
+    </md-card> 
+    <md-card ng-show="!showProgressbas && riepilogo != null" >
+		<md-card-header layout-align="center">				
+			<md-card-header-text >					
+				<span class="md-title">Riepilogo</span>		
+			</md-card-header-text>
+		</md-card-header>	
+        
+        <md-card-title layout="row">  
+         <md-card-content>
+          	<md-input-container><small class="light">Num. tecnici:</small> <span >{{riepilogo.numeroTecnici}}</span></md-input-container>
+          	<md-input-container><small class="light">Num. anni:</small> <span >{{riepilogo.numeroAnni}}</span></md-input-container>          	
+            <md-input-container ng-if="riepilogo.numeroAnniCoupon != ''"><small class="light">Num. anni del coupon:</small> <span >{{riepilogo.numeroAnniCoupon}}</span></md-input-container> 
+
+           
+          </md-card-content>
+          <md-card-title-text style="text-align:right">
+
+	          <md-input-container>
+	          	<small class="light">Prezzo:</small> <span >{{riepilogo.prezzo  | number}} €</span>
+	          </md-input-container>
+	          <md-input-container ng-if="riepilogo.prezzoCoupon != ''">
+	          	<small class="light">Coupon:</small> <span >{{riepilogo.prezzoCoupon  | number}} €</span>
+	          </md-input-container>
+	          <md-input-container>
+	          	<small class="light">Totale senza iva:</small> <span >{{riepilogo.totale  | number}} €</span>
+	          </md-input-container>          	
+	          <md-input-container>
+	          	<small class="light">Iva:</small> <span >{{riepilogo.iva}} %</span>
+	          </md-input-container>
+	          <md-input-container>
+	          	<span class="light md-headline">Totale: {{riepilogo.totaleIvato  | number}} €</span>
+	          </md-input-container>	                    
+          </md-card-title-text>         
+        </md-card-title>
+        
+        <md-card-actions layout="row" layout-align="end">  <md-button  class="md-raised md-raised" ng-click="go('/company/')" layout-align="start">Annulla</md-button>      		  
+          <md-button  class="md-raised md-accent" ng-click="renewalAccount(riepilogo, 'invia')" layout-align="start">Invia</md-button>
+        </md-card-actions>
+    </md-card>      
+</ui-view>

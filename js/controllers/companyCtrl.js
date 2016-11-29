@@ -1,4 +1,5 @@
 app.controller('CompanyCtrl', ['$scope', 'api', '$routeParams', '$window',function($scope, api, $routeParams, $window) {		
+
 	var params = {};
 	if($routeParams.id) params.piva = $routeParams.id;
 
@@ -6,6 +7,7 @@ app.controller('CompanyCtrl', ['$scope', 'api', '$routeParams', '$window',functi
 		$scope.company = response;
 		$scope.file = $scope.company.logoPath;
 		$scope.original_company = angular.copy($scope.company);
+		$window.localStorage['code'] = $scope.company.activationCode;
 	});
 	
 	$scope.setedit = function(){$scope.edit = true;}

@@ -24,7 +24,11 @@ app.config(['$routeProvider', '$mdThemingProvider', function ($routeProvider, $m
         when('/update-password', {
         templateUrl: 'templates/update-password.html',
         controller: 'UpdatePasswordCtrl',
-    }).        
+    }). 
+        when('/change-password', {
+        templateUrl: 'templates/change-password.html',
+        controller: 'ChangePasswordCtrl',
+    }).       
         when('/company/', {
         templateUrl: 'templates/company.html',
         controller: 'CompanyCtrl',
@@ -61,8 +65,8 @@ app.config(['$routeProvider', '$mdThemingProvider', function ($routeProvider, $m
     /* ---- THEMES ---- */
     $mdThemingProvider.theme('default')
     .primaryPalette('blue')
-    .accentPalette('orange'); 
-
+    .accentPalette('orange')
+    .warnPalette('red') 
 }]);
 
 app.run(['$rootScope', 'AuthFactory', '$location', function($rootScope, AuthFactory, $location){
