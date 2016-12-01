@@ -1,10 +1,11 @@
 app.controller('CompanyCtrl', ['$scope', 'api', '$routeParams', '$window',function($scope, api, $routeParams, $window) {		
 
 	var params = {};
-	if($routeParams.id) params.piva = $routeParams.id;
-
+	if($routeParams.id) params.username = $routeParams.id;
+	
 	api.call('datiAzienda', params).then(function(response){
 		$scope.company = response;
+		$scope.company.logoPath = $scope.company.logoPath + '?' + $scope.getTimestamp();
 		$scope.file = $scope.company.logoPath;
 		$scope.original_company = angular.copy($scope.company);
 		$window.localStorage['code'] = $scope.company.activationCode;
@@ -20,6 +21,7 @@ app.controller('CompanyCtrl', ['$scope', 'api', '$routeParams', '$window',functi
 		}
 		else{delete fields.logo;}
 		var params = findDiff($scope.original_company, fields)
+		params.username = $scope.original_company.username;
 		api.call('updateDatiAzienda', params).then(function(response){ $window.history.back(); });
 
 	}

@@ -3,22 +3,26 @@
     <form name="myForm" ng-submit="myForm.$valid && editCompany(company)" >
     <md-card >
     	
-    	<md-card-title>  
-				
+    	<md-card-title> 
+
 			<md-card-title-media>
+				
 				<div ng-mouseover="uploaderHover = 'upload-hover'"  ng-mouseleave="uploaderHover = ''" class="box-upload-image">
 					<div ng-class="uploaderHover" ngf-select="upload($file)" 
 	            		ng-model="file" 
 	            		accept="image/png" 
-	            		ngf-max-size="250kb"
+	            		ngf-max-size="250kb"  name="file"
 	            		 ><ng-md-icon class="icon icon-upload-hover" ng-if="uploaderHover == 'upload-hover'" icon="insert_photo"></ng-md-icon></div>
-	            	<img width="152px" id="uploadeImage" class="upload-image md-card-image"  alt="{{company.ragioneSociale}}" ngf-src="file" ngf-no-object-url="true" ngf-background="file" 
+	            	<img width="152px" id="uploadeImage" class="upload-image md-card-image"  alt="{{company.ragioneSociale}}" ngf-src="file" ngf-no-object-url="true" 
 	            		>	            		
-            	</div>	
+            	</div>
+            	<div ng-if="myForm.file.$error.maxSize" ng-show="myForm.file.$dirty">			     
+			      <div class="md-input-message-animation">Immagine troppo<br> grande [max 250kb]</div>
+			    </div>
           	</md-card-title-media>
           	
           	<md-card-title-text layout="row" layout-wrap>
-
+          			 <md-input-container flex="100"><span class="md-title username">{{company.username}}</span> </md-input-container>
 				  <md-input-container flex="60">
 				    <label>Ragione Sociale</label>
 				    <input name="name" id="name" ng-model="company.ragioneSociale" ng-required="true">

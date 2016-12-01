@@ -75,11 +75,7 @@ app.run(['$rootScope', 'AuthFactory', '$location', function($rootScope, AuthFact
         if($location.path() == '' && AuthFactory.isAdmin()){ $location.path('/companies'); }
         if($location.path() == '' && AuthFactory.isCompany()){ $location.path('/company'); }
     }
-    $rootScope.$on('$routeChangeStart', function (event, toState) {
-
-        
-
-    });
+    
 }]);
 
 /* ---- CONSTANT ---- */

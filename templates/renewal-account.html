@@ -12,16 +12,18 @@
            <form name="myForm" ng-submit="myForm.$valid && renewalAccount(credentials, 'calcola')" >
           		<md-input-container >
 			    <label>Numero dei tecnici</label>
-			    <input type="number" name="numeroTecnici" id="numeroTecnici" ng-model="credentials.numeroTecnici" ng-required="true">
+			    <input type="number" name="numeroTecnici" id="numeroTecnici" min="1" ng-model="credentials.numeroTecnici" ng-required="true">
 			    <div ng-messages="myForm.numeroTecnici.$error" ng-show="myForm.numeroTecnici.$touched">
 			      <div ng-message="required">Questo campo e' obblicatorio</div>
-			    </div>
+			       <div ng-message="min">Inserire un numero maggiore di zero</div>
+			    </div>			   
 			  </md-input-container>
 			  <md-input-container>
 			    <label>Numero anni</label>
-			    <input type="number" name="numeroAnni" id="numeroAnni" ng-model="credentials.numeroAnni" ng-required="true">
+			    <input type="number" name="numeroAnni" id="numeroAnni" min="1" ng-model="credentials.numeroAnni" ng-required="true">
 			    <div ng-messages="myForm.numeroAnni.$error" ng-show="myForm.numeroAnni.$touched">
 			      <div ng-message="required">Questo campo e' obblicatorio</div>
+			      <div ng-message="min">Inserire un numero maggiore di zero</div>
 			    </div>
 			  </md-input-container>
 			  <md-input-container>

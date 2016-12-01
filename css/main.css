@@ -38,6 +38,23 @@ md-input-container label{margin: 0 16px;}
 .page-login form{width: 400px;}
 .page-login md-input-container{    margin: 5px 0;}
 .page-login md-card-title{padding-top: 0; padding-bottom: 0;}
+
+
+.page-signup md-card{position: relative;}
+.page-signup .logo{ margin-top: -5px; margin-left: -1px; background-color: white; width: 258px;}
+.page-signup .box-logo{    left: 0;  right: 0;  margin: 0 auto; top:-45px; overflow: hidden; position: absolute; border: 1px solid #dedede; width: 90px; height: 90px; border-radius: 50%;}
+.page-signup .md-button{width: 100%; color:white !important; font-weight: bold;    padding: 7px;}
+.page-signup .subtext{color:rgb(33,150,243); text-align: center; padding-top: 10px; font-size: 18px;}
+.page-signup .link{margin: 23px 0; text-align: right; }
+.page-signup .link a{text-decoration: none}
+.page-signup .md-title{text-align: center; font-size: 30px; margin-top: 50px;}
+.page-signup md-switch span{color: rgb(33,150,243);}
+.page-signup md-switch span:hover{color: rgb(21, 101, 192);}
+.page-signup form{width: 400px;}
+.page-signup md-input-container{    margin: 5px 0;}
+.page-signup md-card-title{padding-top: 0; padding-bottom: 0;}
+
+
 .page-tech h3{margin-bottom: 5px;}
 .page-tech .icon{fill: #b5b5b5;}
 
@@ -52,4 +69,10 @@ md-input-container label{margin: 0 16px;}
 .switch-tech.md-checked .md-bar{background-color: rgb(143, 175, 139);}
 
 .isNotActive{color: #c5c5c5;}
+
+.username{padding-bottom: 10px; color: rgb(33,150,243);}
+
+
+    .page-login{margin-top: 20vh; margin-left: 38vw;}
+
 

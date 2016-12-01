@@ -22,6 +22,9 @@ app.controller('AppCtrl', ['$scope', '$location', '$mdSidenav', '$rootScope', 'A
     $scope.searchOper = {};
     $scope.searchCompany = {};
     $scope.operations = [];
+
+    $scope.getTimestamp = function() { return new Date().getTime();}
+
 	$scope.toogleSearchTech = function(){
 		$scope.showSearchOperearchTech = !$scope.showSearchOperearchTech;
 	}

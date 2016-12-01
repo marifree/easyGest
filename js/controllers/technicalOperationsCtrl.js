@@ -11,8 +11,8 @@ app.controller('TechnicalOperationsCtrl', ['$scope', 'api', '$window', function(
 		$window.open(url,'_self');
 	}
 
-	$scope.$watch('$parent.operations', function(val){
-		console.log(val);
+	$scope.$watch('$parent.operations', function(val, old){
+		console.log('---------------------',val, old);
 		$scope.operations = val;
 	});
 	
