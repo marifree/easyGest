@@ -29,13 +29,8 @@ app.service('api', ['$http', 'BASE_URL', 'AuthFactory', '$rootScope', '$location
 					$location.path('/login');
 				break;
 				default:
-					$mdDialog.show(
-				      $mdDialog.alert()
-				        .clickOutsideToClose(false)
-				        .title('Attenzione.')
-				        .textContent(response.data.ERROR)
-				        .ok('Ok')
-				    ).then(function(s){console.log(s)});
+					$mdDialog.show($mdDialog.alert().clickOutsideToClose(false).title('Attenzione.').textContent(response.data.ERROR).ok('Ok'))
+						.then(function(){ console.log('ok'); }, function(){ console.log('error'); });
 				break;
 			}
 		}
@@ -52,5 +47,5 @@ app.service('api', ['$http', 'BASE_URL', 'AuthFactory', '$rootScope', '$location
 		return false;
 	}	
 
-}]);
+}]);				
 

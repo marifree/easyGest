@@ -18,15 +18,15 @@
 					            <ng-md-icon class="icon" icon="file_download"></ng-md-icon>
 					            <div class="icon-text-pdf">Foto</div> 
 					          </md-button>
-					          <md-button class="md-secondary" ng-click="openUrl(item.PDFAzienda)" >
+					          <md-button class="md-secondary" ng-if="item.PDFAzienda != null" ng-click="openUrl(item.PDFAzienda)" >
 					            <img src="img/icon-pdf.png" class="icon icon-pdf" />
 					            <div class="icon-text-pdf">Report</div> 
 					          </md-button>
-					          <md-button class="md-secondary" ng-click="openUrl(item.PDFMaterialePreventivato)">
+					          <md-button class="md-secondary" ng-if="item.PDFMaterialePreventivato != null" ng-click="openUrl(item.PDFMaterialePreventivato)">
 					            <img src="img/icon-pdf.png" class="icon icon-pdf" />
 					            <div class="icon-text-pdf">Materiale<br>Preventivato</div> 
 					          </md-button>
-					          <md-button class="md-secondary" ng-click="openUrl(item.PDFMaterialeUtilizzato)" >
+					          <md-button class="md-secondary" ng-if="item.PDFMaterialeUtilizzato != null" ng-click="openUrl(item.PDFMaterialeUtilizzato)" >
 					            <img src="img/icon-pdf.png" class="icon icon-pdf" />
 					            <div class="icon-text-pdf">Materiale<br>Utilizzato</div> 
 					          </md-button>

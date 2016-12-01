@@ -1,5 +1,5 @@
 app.controller('CompanyCtrl', ['$scope', 'api', '$routeParams', '$window',function($scope, api, $routeParams, $window) {		
-
+	$scope.edit = true;
 	var params = {};
 	if($routeParams.id) params.username = $routeParams.id;
 	
@@ -22,7 +22,8 @@ app.controller('CompanyCtrl', ['$scope', 'api', '$routeParams', '$window',functi
 		else{delete fields.logo;}
 		var params = findDiff($scope.original_company, fields)
 		params.username = $scope.original_company.username;
-		api.call('updateDatiAzienda', params).then(function(response){ $window.history.back(); });
+		$scope.edit = false;
+		api.call('updateDatiAzienda', params).then(function(response){ $scope.edit = true; $window.history.back(); });
 
 	}
 

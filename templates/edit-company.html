@@ -94,8 +94,8 @@
 		</md-card-title> 
 
 		<md-card-actions layout="row" layout-align="end center">		
-		    <md-button type="button" class="md-raised "ng-click="back()">Annulla</md-button>
-		    <md-button type="submit" class="md-raised md-primary" ng-disabled="myForm.$invalid">Salva</md-button>
+		    <md-button type="button" class="md-raised" ng-click="back()">Annulla</md-button>
+		    <md-button type="submit" class="md-raised md-primary" ng-disabled="myForm.$invalid && edit">Salva</md-button>
 		</md-card-actions>	
 		
 	</md-card>
